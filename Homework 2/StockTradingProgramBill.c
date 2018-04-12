@@ -21,11 +21,13 @@ commissions to his broker. (If the amount of profit that your program displays i
 negative number, then Joe lost money on the transaction.)
 */
 
+//PatternDisplays
 
 #include <stdio.h>
 
 int main()
 {
+
 	//last month purchase
 	double joeNumShareBuy = 1000;
 	double buyPriceperShare = 45.50;
@@ -38,13 +40,17 @@ int main()
 	double paid = joeNumShareBuy * buyPriceperShare;
 	double commissionPaid = commission * paid;
 	double sold = joeNumShareSold * soldPriceperShare;
+	double commissionSold = sold * commission;
+	double profit = ((sold - commission*sold) - (paid - commission*paid));
+
 
 	printf("The amount of money Joe paid for the stock: $%.2f\n", paid);
 	printf("The amount of commission Joe paid his broker when he bought the stock: $%.2f\n", commissionPaid);
 	printf("The amount that Joe sold the stock for: $%.2f\n", sold);
-	//printf("The amount of commission Joe paid his broker when he sold the stock: $%.2f\n", sold);
-
-
+	printf("The amount of commission Joe paid his broker when he sold the stock: $%.2f\n", commissionSold);
+	printf("the amount of profit that Joe made after selling his stock ");
+	printf("and paying the two commissions to his broker: $%.2f\n", profit);
 
 	return 0;
+
 }
