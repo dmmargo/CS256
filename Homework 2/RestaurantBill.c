@@ -6,6 +6,7 @@ amount, and total bill on the screen.
 */
 
 #include <stdio.h>
+
 int main()
 {
 	double patronMeal = 88.67;
@@ -16,5 +17,6 @@ int main()
 	printf("Tax Amount: $%.2f\n", tax);
 	printf("Tip Amount: $%.2f\n", tip);
 	printf("Total Bill: $%.2f", total);
+	
 	return 0;
 }
