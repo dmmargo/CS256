@@ -152,7 +152,7 @@ int main()
 						seatN+=1;
 					}
 				}
-				cout << seatN << endl;
+				//cout << seatN << endl;
 				cout << "row " << rowChoice << " has " << seatN << " seats left" << endl;
 					
 				seatN = 0;
