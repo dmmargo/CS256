@@ -3,12 +3,11 @@
 using namespace std;
 
 void listOfSeats();
-char movieMenu(char);
 
 int main()
 {
-	const int rowNum = (15.0);
-	double rowValue[rowNum]; //array to hold row pices
+	const int rowNum = 15.0;
+	double rowValue[rowNum]; 
 	char selection;
 	int row2, col2;
 	const char TAKEN = '#';
@@ -16,6 +15,9 @@ int main()
 	const int row = 15;
 	const int cols = 30;
 	char seats[row][cols];
+	int ticketSold = 0;
+	double ticketPrice = 0;
+	double ticketTotal = 0;
 	
 	for(int i= 0;i<row;i++)
 	{
@@ -25,16 +27,16 @@ int main()
 		}
 	}
 
-	listOfSeats();
+	listOfSeats(); //empty start seats
 
-	//seats(rowValue, rowNum);
 	
-	cout << "Please enter a ticket price for each row." << endl;
+	cout << "Enter a seat price for each row." << endl;
 	
 	for(int i = 0 ; i < row; i++)
 	{
 		cout << "Row # " << i+1 << ": " ;
-		cin >> rowValue[row];	
+		cin >> rowValue[i];
+		//cout << rowValue[i];
 	}
 	cout << endl;
 	
@@ -43,62 +45,82 @@ int main()
 	
 	do
 		{
-			cout << "MOVIE THEATER MENU" << endl;
+			cout << endl;
+			cout << "Theater Ticketing: " << endl;
 			cout << "------------------" << endl;
 			cout << "1) Sell a ticket" << endl;
-			cout << "2) List the seats" << endl;
-			cout << "Q) Quit program" << endl;
-			cout << "Please make a selection: ";
+			cout << "2) List the current seating chart" << endl;
+			cout << "3) How many tickets sold" << endl;
+			cout << "Q) Exit" << endl;
+			cout << "User's selection (1, 2, or Q): ";
 			cin >> selection;
 			
 			if(selection =='1')
 			{
-				cout << "Please enter a row number and a seat number for the ticket: " ;
+				cout << "Enter a row number and a seat number for the ticket: " ;
 				cout << endl;
-				cout << "Row # :" ;
+				cout << "Row# :" ;
 				cin >> row2;
-				cout << endl;
-				cout << "Seat # :" ;
+				//cout << endl;
+				cout << "Column# :" ;
 				cin >> col2;
 				cout << endl;
-/*
-				for(int i = 0; i < row; i++)
-				{
-					for(int j=0;j<cols;j++)
-					{
-						seats[row2][col2]=TAKEN;
-					}
-				}
-				*/
+				
+				
 				if(seats[row2-1][col2-1] == TAKEN)
 				{
 					cout << "This seat is taken! Try another one. \n";
-					continue; // start the loop again
+					continue; 
 				}
-				else // and if it is - sell the ticket
+				else {
 					seats[row2-1][col2-1]=TAKEN;
-				// Add the next loop to immediately see the effects:
-				for (int i = 0; i < row; i++){
-					for(int j = 0; j < cols; j++){
-						cout << seats[i][j];
-					}
+					ticketSold++;
 					
-				cout << endl;
+					ticketPrice = rowValue[row2-1];
+					ticketTotal = ticketTotal + ticketPrice;
+					
+					cout << "price of ticket: " << ticketPrice << endl;
+					cout << "total ticket price: " << ticketTotal << endl;
+					
+					
 				}
+				
+			
+				
 
 			}
 			else if(selection =='2')
 			{
+				cout << "                   Seats" << endl;
+				cout << "      123456789012345678901234567890" ;
+				
 				for (int i = 0; i < row; i++){
+					if (i <9){
+						cout << endl<< "Row " << i+1 << " ";
+					}
+					else
+					{
+						cout << endl<< "Row" << i+1 << " ";
+					}
+		
+					
 					for(int j = 0; j < cols; j++){
+						
 						cout << seats[i][j];
 					}
-					cout << endl;
+					
+					//cout << endl;
 				}
 			}
+			else if (selection == '3')
+			{
+				cout << endl;
+				cout << "total tickets sold: " << ticketSold << endl;
+			}
+			
 			else if(selection =='q'||selection=='Q')
 			{
-				cout << "Thank you for using the program." << endl;
+				cout << "Thanks for visiting Theater Ticketing!" << endl;
 				exit(0);
 			}
 			else if(selection != '1' || selection !='q' || selection !='Q')
@@ -111,7 +133,7 @@ int main()
 }
 
 
-void listOfSeats()
+void listOfSeats() // print seats rows and columns at the start of the menu
 {
 	const char TAKEN = '#';//taken
 	const char EMPTY = '*';//empty
@@ -119,13 +141,8 @@ void listOfSeats()
 	const int cols=30;
 
 	cout << "Seats 123456789012345678901234567890" ;
-	/*
-	for(int i = 1; i<=30; i++) 
-	{
-		cout << i ;
-	}*/
 
-	for(int i=0; i<row; i++)//making array display what's in it
+	for(int i=0; i<row; i++)
 	{
 		if (i <10){
 			cout << endl<< "Row " << i << " ";
