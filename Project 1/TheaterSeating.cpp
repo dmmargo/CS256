@@ -18,6 +18,8 @@ int main()
 	int ticketSold = 0;
 	double ticketPrice = 0;
 	double ticketTotal = 0;
+	int input;
+	int counter = 0;
 	
 	for(int i= 0;i<row;i++)
 	{
@@ -31,13 +33,28 @@ int main()
 
 	cout << "Enter a seat price for each row." << endl;
 	
-	for(int i = 0 ; i < row; i++)
-	{
-		cout << "Row # " << i+1 << ": " ;
-		cin >> rowValue[i];
-		//cout << rowValue[i];
-	}
-	cout << endl;
+	do{
+		if (counter ==15)
+		{
+			break;
+		}
+		for(int i = 0; i < row;)
+		{
+			cout << "Row # " << i+1 << ": " ;
+			cin >> input;
+			
+			if (input >= 0){
+				rowValue[i] = input;
+				i++;
+				counter++;
+			}
+			
+			else 
+				cout << "invalid input" << endl;
+		}
+		cout << endl;
+	} while (input >= 0);
+
 	
 	
 	
@@ -58,11 +75,25 @@ int main()
 			{
 				cout << "Enter a row number and a seat number for the ticket: " ;
 				cout << endl;
-				cout << "Row# :" ;
+				do {
+				cout << "Row# (1 - 15)" ;
 				cin >> row2;
+					if (row2<1 || row2 >15)
+					{
+						cout << "enter valid number" << endl;
+					}
+				} while (row2<1 || row2 >15);
+				
 				//cout << endl;
-				cout << "Column# :" ;
-				cin >> col2;
+				do {
+					cout << "Column# (1 - 30):" ;
+					cin >> col2;
+					if (col2<1 || col2 >30)
+					{
+						cout << "enter valid number" << endl;
+					}
+				} while (col2<1 || col2 >30);
+				
 				cout << endl;
 				
 				
@@ -118,9 +149,9 @@ int main()
 				cout << "Thanks for visiting Theater Ticketing!" << endl;
 				exit(0);
 			}
-			else if(selection != '1' || selection !='q' || selection !='Q')
+			else if(selection != '1' || selection != '2' || selection != '3'||selection !='q' || selection !='Q')
 			{
-				cout << "Invalid selection." << endl;
+				cout << "Invalid selection. Try again!" << endl;
 			}
 		}while(selection != '1' || selection != '2'||selection != '3'||selection !='q' || selection !='Q');
 	
