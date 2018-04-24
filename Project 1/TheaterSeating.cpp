@@ -65,7 +65,7 @@ int main()
 			cout << "-----------------------" << endl;
 			cout << "1) Sell a ticket" << endl;
 			cout << "2) List the current seating chart" << endl;
-			cout << "3) How many tickets sold" << endl;
+			cout << "3) Rows Specifics and Sold Seats" << endl;
 			cout << "Q) Exit" << endl;
 			cout << "User's selection (1, 2, 3, or Q): ";
 			cin >> selection;
