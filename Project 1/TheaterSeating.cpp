@@ -20,6 +20,9 @@ int main()
 	double ticketTotal = 0;
 	double input;
 	int counter = 0;
+	int rowChoice;
+	int seatN = 0;
+	int column = 0;
 	
 	for(int i= 0;i<row;i++)
 	{
@@ -135,7 +138,25 @@ int main()
 				cout << endl;
 				cout << "Total Tickets/Seats Sold: " << ticketSold << endl;
 				cout << "Total Price: " << ticketTotal << endl;
+				
+				do {
+				cout << "Choose row: ";
+				cin >> rowChoice;
+				if (rowChoice < 1 || rowChoice > 15) {
+					cout << "Please enter a valid row number." << endl;
+				}
+
+				} while (rowChoice < 1 || rowChoice > 15);
+				for (int i = 0; i < cols; i++) {
+					if (seats[rowChoice-1][column-1 +i] != TAKEN) {
+						seatN+=1;
+					}
+				}
+				cout << seatN << endl;
+				cout << "row " << rowChoice << " has " << seatN << " seats left" << endl;
 					
+				seatN = 0;
+				column = 0;
 			}
 			
 			else if(selection =='q'||selection=='Q') //quits program
