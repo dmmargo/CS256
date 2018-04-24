@@ -29,7 +29,6 @@ int main()
 
 	listOfSeats(); //empty start seats
 
-	
 	cout << "Enter a seat price for each row." << endl;
 	
 	for(int i = 0 ; i < row; i++)
@@ -52,7 +51,7 @@ int main()
 			cout << "2) List the current seating chart" << endl;
 			cout << "3) How many tickets sold" << endl;
 			cout << "Q) Exit" << endl;
-			cout << "User's selection (1, 2, or Q): ";
+			cout << "User's selection (1, 2, 3, or Q): ";
 			cin >> selection;
 			
 			if(selection =='1')
@@ -79,15 +78,9 @@ int main()
 					ticketPrice = rowValue[row2-1];
 					ticketTotal = ticketTotal + ticketPrice;
 					
-					cout << "price of ticket: " << ticketPrice << endl;
-					cout << "total ticket price: " << ticketTotal << endl;
-					
-					
+					cout << "Price of that Ticket: " << ticketPrice << endl;
+					cout << "Total Price: " << ticketTotal << endl;
 				}
-				
-			
-				
-
 			}
 			else if(selection =='2')
 			{
@@ -115,7 +108,9 @@ int main()
 			else if (selection == '3')
 			{
 				cout << endl;
-				cout << "total tickets sold: " << ticketSold << endl;
+				cout << "Total Tickets Sold: " << ticketSold << endl;
+				cout << "Total Price: " << ticketTotal << endl;
+					
 			}
 			
 			else if(selection =='q'||selection=='Q')
@@ -127,7 +122,7 @@ int main()
 			{
 				cout << "Invalid selection." << endl;
 			}
-		}while(selection != '1' || selection !='q' || selection !='Q');
+		}while(selection != '1' || selection != '2'||selection != '3'||selection !='q' || selection !='Q');
 	
 	return 0;
 }
@@ -135,8 +130,8 @@ int main()
 
 void listOfSeats() // print seats rows and columns at the start of the menu
 {
-	const char TAKEN = '#';//taken
-	const char EMPTY = '*';//empty
+	const char TAKEN = '#';
+	const char EMPTY = '*';
 	const int row=15;
 	const int cols=30;
 
