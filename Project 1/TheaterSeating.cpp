@@ -18,7 +18,7 @@ int main()
 	int ticketSold = 0;
 	double ticketPrice = 0;
 	double ticketTotal = 0;
-	int input;
+	double input;
 	int counter = 0;
 	
 	for(int i= 0;i<row;i++)
@@ -29,10 +29,10 @@ int main()
 		}
 	}
 
-	listOfSeats(); //empty start seats
+	listOfSeats(); //empty start seats display
 
-	cout << "Enter a seat price for each row." << endl;
 	
+	cout << "Enter a seat price for each row." << endl;
 	do{
 		if (counter ==15)
 		{
@@ -40,7 +40,7 @@ int main()
 		}
 		for(int i = 0; i < row;)
 		{
-			cout << "Row # " << i+1 << ": " ;
+			cout << "Row # " << i+1 << ": $" ;
 			cin >> input;
 			
 			if (input >= 0){
@@ -54,16 +54,12 @@ int main()
 		}
 		cout << endl;
 	} while (input >= 0);
-
 	
 	
-	
-	
-	do
-		{
+		do{
 			cout << endl;
 			cout << "Theater Ticketing: " << endl;
-			cout << "------------------" << endl;
+			cout << "-----------------------" << endl;
 			cout << "1) Sell a ticket" << endl;
 			cout << "2) List the current seating chart" << endl;
 			cout << "3) How many tickets sold" << endl;
@@ -80,7 +76,7 @@ int main()
 				cin >> row2;
 					if (row2<1 || row2 >15)
 					{
-						cout << "enter valid number" << endl;
+						cout << "enter valid number, try again" << endl; //invalid row
 					}
 				} while (row2<1 || row2 >15);
 				
@@ -90,7 +86,7 @@ int main()
 					cin >> col2;
 					if (col2<1 || col2 >30)
 					{
-						cout << "enter valid number" << endl;
+						cout << "enter valid number, try again" << endl; //invalid column
 					}
 				} while (col2<1 || col2 >30);
 				
@@ -110,7 +106,7 @@ int main()
 					ticketTotal = ticketTotal + ticketPrice;
 					
 					cout << "Price of that Ticket: " << ticketPrice << endl;
-					cout << "Total Price: " << ticketTotal << endl;
+					cout << "Total Price: $" << ticketTotal << endl;
 				}
 			}
 			else if(selection =='2')
@@ -132,32 +128,30 @@ int main()
 						
 						cout << seats[i][j];
 					}
-					
-					//cout << endl;
 				}
 			}
-			else if (selection == '3')
+			else if (selection == '3') //shows how many seats sold and total price payed
 			{
 				cout << endl;
-				cout << "Total Tickets Sold: " << ticketSold << endl;
+				cout << "Total Tickets/Seats Sold: " << ticketSold << endl;
 				cout << "Total Price: " << ticketTotal << endl;
 					
 			}
 			
-			else if(selection =='q'||selection=='Q')
+			else if(selection =='q'||selection=='Q') //quits program
 			{
 				cout << "Thanks for visiting Theater Ticketing!" << endl;
 				exit(0);
 			}
 			else if(selection != '1' || selection != '2' || selection != '3'||selection !='q' || selection !='Q')
 			{
+				//tells the user to try again from invalid selection
 				cout << "Invalid selection. Try again!" << endl;
 			}
 		}while(selection != '1' || selection != '2'||selection != '3'||selection !='q' || selection !='Q');
 	
 	return 0;
 }
-
 
 void listOfSeats() // print seats rows and columns at the start of the menu
 {
@@ -170,7 +164,8 @@ void listOfSeats() // print seats rows and columns at the start of the menu
 
 	for(int i=0; i<row; i++)
 	{
-		if (i <10){
+		//makes sure the rows are alligned
+		if (i <10){ 
 			cout << endl<< "Row " << i << " ";
 		}
 		else
@@ -178,6 +173,7 @@ void listOfSeats() // print seats rows and columns at the start of the menu
 			cout << endl<< "Row" << i << " ";
 		}
 		
+		//counts the seats as empty
 		for(int j=0; j<cols; j++)
 		{
 			cout << EMPTY;
