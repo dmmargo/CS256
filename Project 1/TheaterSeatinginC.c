@@ -1,6 +1,3 @@
-//# include <iostream>
-//# include <iomanip>
-//using namespace std;
 #include <stdio.h>
 
 void listOfSeats();
@@ -32,8 +29,30 @@ int main() {
 		}
 	}
 
-	listOfSeats(); //empty start seats display
+	//listOfSeats(); //empty start seats display
+	
+	printf("Seats 123456789012345678901234567890");
 
+	for(int i=0; i<row; i++)
+	{
+		//makes sure the rows are alligned
+		if (i <10){
+			printf("\n%s%1d  ", "Row ", i);
+		}
+		else
+		{
+			printf("\n%s%1d  ", "Row", i);
+		}
+
+		//counts the seats as empty
+		for(int j=0; j<cols; j++)
+		{
+			printf("%c", EMPTY);
+		}
+	}
+	printf("\n");
+	
+	
 
 	printf("Enter a seat price for each row.\n");
 	do{
@@ -44,7 +63,7 @@ int main() {
 		for(int i = 0; i < row;)
 		{
 			printf("%s%1d%s", "Row # ", i+1, ": $");
-			scanf("%1d", input);
+			scanf("%1lf", &input);
 
 			if (input >= 0){
 				rowValue[i] = input;
@@ -68,7 +87,7 @@ int main() {
 			printf("%s\n", "3) Rows Specifics and Sold Seats");
 			printf("%s\n", "4) Exit");
 			printf("%s", "User's selection (1, 2, 3, or Q): ");
-			scanf("%1d", selection);
+			scanf("%1s", &selection);
 
 			if(selection =='1')
 			{
@@ -76,7 +95,7 @@ int main() {
 				printf("\n");
 				do {
 				printf("%s", "Row# (1 - 15)");
-				scanf("%1d",row2);
+				scanf("%i",&row2);
 					if (row2<1 || row2 >15)
 					{
 						printf("%s\n", "enter valid number, try again"); //invalid row
@@ -86,7 +105,7 @@ int main() {
 
 				do {
 					printf("%s", "Column# (1 - 30):");
-					scanf("%1d", col2);
+					scanf("%i", &col2);
 					if (col2<1 || col2 >30)
 					{
 						printf("%s\n", "enter valid number, try again"); //invalid column
@@ -108,8 +127,8 @@ int main() {
 					ticketPrice = rowValue[row2-1];
 					ticketTotal = ticketTotal + ticketPrice;
 
-					printf("%s%1d%s\n", "Price of that Ticket: ", ticketPrice);
-					printf("%s%1d%s\n", "Total Price: $", ticketTotal);
+					printf("%s%.2f\n", "Price of that Ticket: ", ticketPrice);
+					printf("%s%.2f\n", "Total Price: $", ticketTotal);
 				}
 			}
 			else if(selection =='2')
@@ -119,29 +138,29 @@ int main() {
 
 				for (int i = 0; i < row; i++){
 					if (i <9){
-						printf("\n%s%1d%s", "Row ", (i+1), "  ");
+						printf("\n%s%d  ", "Row ", (i+1));
 					}
 					else
 					{
-						printf("\n%s%1d", "Row", (i+1), " ");
+						printf("\n%s%d  ", "Row", (i+1));
 					}
 
 
 					for(int j = 0; j < cols; j++){
 
-						printf(seats[i][j]);
+						printf("%c", seats[i][j]);
 					}
 				}
 			}
 			else if (selection == '3') //shows how many seats sold and total price payed
 			{
 				printf("\n");
-				printf("%s%1d\n", "Total Tickets/Seats Sold: ", ticketSold);
-				printf("%s%1d\n", "Total Price: ", ticketTotal);
+				printf("%s%i\n", "Total Tickets/Seats Sold: ", ticketSold);
+				printf("%s%.2f\n", "Total Price: ", ticketTotal);
 
 				do {
 				printf("Choose row: ");
-				scanf("%1d",rowChoice);
+				scanf("%i", &rowChoice);
 				if (rowChoice < 1 || rowChoice > 15) {
 					printf("Please enter a valid row number.\n");
 				}
@@ -152,8 +171,8 @@ int main() {
 						seatN+=1;
 					}
 				}
-				printf(seatN + "\n");
-				printf("%s%1d%s%1d%s\n", "row ", rowChoice, " has ", seatN, " seats left");
+				printf("%i\n", seatN);
+				printf("%s%i%s%i%s\n", "row ", rowChoice, " has ", seatN, " seats left");
 
 				seatN = 0;
 				column = 0;
@@ -187,17 +206,17 @@ void listOfSeats() // print seats rows and columns at the start of the menu
 	{
 		//makes sure the rows are alligned
 		if (i <10){
-			printf("\n%s%1d%s", "Row ", i, "  ");
+			printf("\n%s%1d  ", "Row ", i);
 		}
 		else
 		{
-			printf("\n%s%1d", "Row", i, " ");
+			printf("\n%s%1d  ", "Row", i);
 		}
 
 		//counts the seats as empty
 		for(int j=0; j<cols; j++)
 		{
-			printf(EMPTY);
+			printf("%c", EMPTY);
 		}
 	}
 	printf("\n");
