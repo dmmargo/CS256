@@ -106,17 +106,17 @@ int PersonData::getPhone()
 
 class CustomerData :public PersonData
 {
-private: 
+private:
 	int customerNum;
 	bool mailingList;
 
-public: 
+public:
 	CustomerData()
 	{
 		customerNum = 0;
 		mailingList = false;
 	}
-	
+
 	void setCustomerNum(int n);
 	void setMailingList(bool ml);
 
@@ -147,7 +147,7 @@ class PreferedCustomer :public CustomerData
 private:
 	double purchaseAmount;
 	double discountLabel;
-public: 
+public:
 	PreferedCustomer()
 	{
 		purchaseAmount = 0;
@@ -195,20 +195,63 @@ double PreferedCustomer::getDiscountLabel()
 }
 
 
-void main()
+int main()
 {
-	string fname;
-	string lname;
-	string address;
-	string city;
-	string state;
-	int cusnum;
-	int zip;
-	int pnum;
+	PreferedCustomer cust;
 
-	cout << "Customer first name: ";
-	cin >> fname;
-	cout << "Customer last name: ";
+	string inputS;
+	int inputN;
+
+	cout << "Enter customer first name: ";
+	cin >> inputS;
+	cust.setFirstName(inputS);
+
+	cout << "Enter customer last name: ";
+	cin >> inputS;
+	cust.setLastName(inputS);
+
+	cout << "Enter address: ";
+	cin >> inputS;
+	cust.setAddress(inputS);
+
+	cout << "Enter city: ";
+	cin >> inputS;
+	cust.setCity(inputS);
+
+	cout << "Enter state: ";
+	cin >> inputS;
+	cust.setState(inputS);
+
+	cout << "Enter Customer Number: ";
+	cin >> inputN;
+	cust.setCustomerNum(inputN);
+
+	cout << "Enter Zip Code: ";
+	cin >> inputN;
+	cust.setZip(inputN);
+
+	cout << "Enter Phone Number:";
+	cin >> inputN;
+	cust.setPhone(inputN);
+
+
+	cust.setPurchaseAmount();
+	cust.setDiscountLabel();
+
+	//display info by getting 
+	cout << "\n\n___Customer information___\n " << endl;
+	cout << "first name: " << cust.getFirstName() << endl;
+	cout << "last name: " << cust.getLastName() << endl;
+	cout << "address(no spaces): " << cust.getAddress() << endl;
+	cout << "city name: " << cust.getCity() << endl;
+	cout << "state name: " << cust.getState() << endl;
+	cout << "zip code: " << cust.getZip() << endl;
+	cout << "phone number: " << cust.getPhone() << endl;
+	cout << "mailing list " << cust.getMailingList() << endl;
+	cout << "purchase amount: " << cust.getPurchaseAmount() << endl;
+	cout << "discount: " << cust.getDiscountLabel() << endl;
+
+	system("pause");
 }
 
 
