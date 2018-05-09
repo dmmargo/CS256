@@ -1,39 +1,22 @@
 /*
 //**********************************************************************
 //PASS BY VALUE
-
 #include "stdafx.h"
-
 #include <iostream>
-
 using namespace std;
-
-
 
 void func(int);
 
-
-
 int main()
-
 {
-
 int x = 7;
-
 func(x);
-
 return 0;
-
 }
 
-
-
 void func(int a) {
-
 cout << a << endl;
-
 } 
-
 */
 //*************************************************************
 /*
