@@ -236,6 +236,7 @@ int main()
 	cin >> inputN;
 	cust.setCustomerNum(inputN);
 
+	cust.setMailingList(true);
 
 	cust.setPurchaseAmount();
 	cust.setDiscountLabel();
