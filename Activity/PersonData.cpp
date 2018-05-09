@@ -201,7 +201,7 @@ int main()
 
 	string inputS;
 	int inputN;
-
+	cout << "--Enter Information with no spaces--\n";
 	cout << "Enter customer first name: ";
 	cin >> inputS;
 	cust.setFirstName(inputS);
@@ -222,10 +222,6 @@ int main()
 	cin >> inputS;
 	cust.setState(inputS);
 
-	cout << "Enter Customer Number: ";
-	cin >> inputN;
-	cust.setCustomerNum(inputN);
-
 	cout << "Enter Zip Code: ";
 	cin >> inputN;
 	cust.setZip(inputN);
@@ -234,15 +230,21 @@ int main()
 	cin >> inputN;
 	cust.setPhone(inputN);
 
+	cout << "";
+
+	cout << "Enter Customer Number: ";
+	cin >> inputN;
+	cust.setCustomerNum(inputN);
+
 
 	cust.setPurchaseAmount();
 	cust.setDiscountLabel();
 
 	//display info by getting 
-	cout << "\n\n___Customer information___\n " << endl;
+	cout << "Customer information: " << endl;
 	cout << "first name: " << cust.getFirstName() << endl;
 	cout << "last name: " << cust.getLastName() << endl;
-	cout << "address(no spaces): " << cust.getAddress() << endl;
+	cout << "address: " << cust.getAddress() << endl;
 	cout << "city name: " << cust.getCity() << endl;
 	cout << "state name: " << cust.getState() << endl;
 	cout << "zip code: " << cust.getZip() << endl;
