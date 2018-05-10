@@ -5,56 +5,50 @@ using namespace std;
 class Ship
 {
 private:
-	string ship_name;
-	int year_built;
+	string shipName;
+	int yearBuilt;
 public:
-	void set_ship_name(string str)
-	{
-		ship_name = str;
+	void setShipName(string sname) {
+		shipName = sname;
 	}
-	void set_year(int y)
-	{
-		year_built = y;
+	void setYear(int yr){
+		yearBuilt = yr;
 	}
-	int get_year()
-	{
-		return year_built;
+	int get_year(){
+		return yearBuilt;
 	}
-	string get_ship_name()
-	{
-		return ship_name;
+	string getShipName(){
+		return shipName;
 	}
-	Ship(string str = "", int y = 0)
-	{
-		set_ship_name(str);
-		set_year(y);
+	Ship(string sname = "", int yr = 0) {
+		setShipName(sname);
+		setYear(yr);
 	}
-	void print()
-	{
-		cout << "Ship name is " << ship_name << " and it was built in year " << year_built << endl;
+	void print() {
+		cout << "Ship name is " << shipName << " and it was built in year " << yearBuilt << endl;
 	}
 };
 
 class CruiseShip : public Ship
 {
 private:
-	int max_passengers;
+	int maxPassengers;
 public:
-	CruiseShip(string str = "", int year = 0, int pass = 0) :Ship(str, year)
+	CruiseShip(string sname = "", int year = 0, int ppl = 0) :Ship(str, year)
 	{
-		set_passengers(pass);
+		setPassengers(ppl);
 	}
-	void set_passengers(int pass)
+	void setPassengers(int ppl)
 	{
-		max_passengers = pass;
+		maxPassengers = ppl;
 	}
-	int get_passengers()
+	int getPassengers()
 	{
-		return max_passengers;
+		return maxPassengers;
 	}
 	void print()
 	{
-		cout << "Ship name is " << get_ship_name() << " and maximum number of passengers are " << max_passengers << endl;
+		cout << "Ship name is " << getShipName() << " and maximum number of passengers are " << maxPassengers << endl;
 	}
 };
 
@@ -63,13 +57,13 @@ class CargoShip : public Ship
 private:
 	int cargo_capacity_in_tonnes;
 public:
-	CargoShip(string str = "", int year = 0, int pass = 0) :Ship(str, year)
+	CargoShip(string sname = "", int year = 0, int ppl = 0) :Ship(str, year)
 	{
-		set_capacity(pass);
+		setCapacity(ppl);
 	}
-	void set_capacity(int pass)
+	void setCapacity(int ppl)
 	{
-		cargo_capacity_in_tonnes = pass;
+		cargo_capacity_in_tonnes = ppl;
 	}
 	int get_capacity()
 	{
@@ -77,73 +71,81 @@ public:
 	}
 	void print()
 	{
-		cout << "Ship name is " << get_ship_name() << " and its Capacity is " << cargo_capacity_in_tonnes << " Tonnes." << endl;
+		cout << "Ship name is " << getShipName() << " and its Capacity is " << cargo_capacity_in_tonnes << " Tonnes." << endl;
 	}
 };
-void get_user_data(string& ship_name, int& year_built)
+void getUserData(string& shipName, int& yearBuilt)
 {
 	cout << "Enter Ship name :";
-	cin >> ship_name;
+	cin >> shipName;
 	cout << endl;
 	cout << "Enter year in which ship was built. :";
-	cin >> year_built;
+	cin >> yearBuilt;
 	cout << endl;
 }
-void get_user_data_cruise(string& ship_name, int& year_built, int& max_passengers)
+void getUserData_cruise(string& shipName, int& yearBuilt, int& maxPassengers)
 {
-	get_user_data(ship_name, year_built);
-	cout << "Enter no of passengers on ship :";
-	cin >> max_passengers;
+	getUserData(shipName, yearBuilt);
+	cout << "Number of people on Ship:";
+	cin >> maxPassengers;
 	cout << endl;
 }
-void get_user_data_cargo(string& ship_name, int& year_built, int& capacity)
+void getCargoData(string& shipName, int& yearBuilt, int& capacity)
 {
-	get_user_data(ship_name, year_built);
-	cout << "Enter the capacity of ship. :";
+	getUserData(shipName, yearBuilt);
+	cout << "Ship Capacity:";
 	cin >> capacity;
 	cout << endl;
 }
 int main()
 {
-	string ship_name;
-	int year_built;
-	int max_passengers;
+	string shipName;
+	int yearBuilt;
+	int maxPassengers;
 	int capacity;
-	//start building Ships now..
-	get_user_data(ship_name, year_built);
-	//built object 1
-	Ship object1(ship_name, year_built);
+	
+	getUserData(shipName, yearBuilt);
+
+	Ship object1(shipName, yearBuilt);
 	object1.print();
-	get_user_data(ship_name, year_built);
-	//built object 1
+	getUserData(shipName, yearBuilt);
+	
 	Ship object2;
-	object2.set_ship_name(ship_name);
-	object2.set_year(year_built);
+	object2.setShipName(shipName);
+	object2.setYear(yearBuilt);
 	object2.print();
-	//start building Cruise Ships now..
-	get_user_data_cruise(ship_name, year_built, max_passengers);
-	//built object 1
-	CruiseShip cruise_object1(ship_name, year_built, max_passengers);
+	
+	//_________________________________________
+	
+	getUserData_cruise(shipName, yearBuilt, maxPassengers);
+
+	
+	CruiseShip cruise_object1(shipName, yearBuilt, maxPassengers);
 	cruise_object1.print();
-	get_user_data_cruise(ship_name, year_built, max_passengers);
-	//built object 2
+	getUserData_cruise(shipName, yearBuilt, maxPassengers);
+	
+	
 	CruiseShip cruise_object2;
-	cruise_object2.set_ship_name(ship_name);
-	cruise_object2.set_year(year_built);
-	cruise_object2.set_passengers(max_passengers);
+	cruise_object2.setShipName(shipName);
+	cruise_object2.setYear(yearBuilt);
+	cruise_object2.setPassengers(maxPassengers);
 	cruise_object2.print();
-	//start building Cargo Ships now..
-	get_user_data_cargo(ship_name, year_built, capacity);
-	//built object 1
-	CargoShip Cargo_object1(ship_name, year_built, capacity);
+
+	//________________________________________
+	
+	getCargoData(shipName, yearBuilt, capacity);
+
+	
+	CargoShip Cargo_object1(shipName, yearBuilt, capacity);
 	Cargo_object1.print();
-	get_user_data_cargo(ship_name, year_built, capacity);
-	//built object 2
+	getCargoData(shipName, yearBuilt, capacity);
+
+	
 	CargoShip Cargo_object2;
-	Cargo_object2.set_ship_name(ship_name);
-	Cargo_object2.set_year(year_built);
-	Cargo_object2.set_capacity(capacity);
+	Cargo_object2.setShipName(shipName);
+	Cargo_object2.setYear(yearBuilt);
+	Cargo_object2.setCapacity(capacity);
 	Cargo_object2.print();
-	//system("pause");
+	
 	return 0;
 }

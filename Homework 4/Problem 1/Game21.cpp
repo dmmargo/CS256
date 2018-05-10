@@ -18,13 +18,14 @@ int main() {
 	int player = 0;
 	int cpu = 0;
 	while (true) {
-		int yes;
-		cout << "Do you want to roll dice and accumulate points? (Enter 1 for yes): ";
-		cin >> yes;
-		if (yes != 1) break;
+		int ans;
+		cout << "Roll the Dice (press 1): ";
+		cin >> ans;
+		if (ans != 1) break;
 		cpu += d1.roll() + d2.roll();
 		player += d1.roll() + d2.roll();
-		cout << "Your current total is " << player << "\n";
+		cout << "you rolled a : " << d1.roll() + d2.roll() << endl;
+		cout << "Dice Score: " << player << "\n";
 		if (player > 21) break;
 	}
 	cout << "Your total: " << player << "\n";
@@ -33,9 +34,9 @@ int main() {
 		cout << "Match tie\n";
 	}
 	else if (player <= 21 && player > cpu) {
-		cout << "You win\n";
+		cout << "You win!\n";
 	}
 	else {
-		cout << "You lose because your total got over 21\n";
+		cout << "Dice Score Over 21\n";
 	}
 }
