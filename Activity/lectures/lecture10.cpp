@@ -222,7 +222,7 @@ int jump(const char * rs) {
 }
 
 //*****************************************************************************
-
+/*
 
 compile time - program not running 
 runtime -  program running and want ot do something 
@@ -237,7 +237,7 @@ postitive: memory efficient relation
 c: m allocation
 c++: new
 delete
-
+*/
 
 //*******************************************************************************
 
