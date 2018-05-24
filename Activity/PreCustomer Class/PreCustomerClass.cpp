@@ -1,11 +1,8 @@
-//Diane Margo
-//CS256
-//05/24/2018 
-
 #include "stdafx.h"
 #include <exception>
 #include <iostream> 
 #include <string>
+
 using namespace std;
 class Employee {
 private:
@@ -246,9 +243,9 @@ int main() {
 			// next statement will execute. 
 			tryAgain2 = false;
 		}
-		catch (ProductionWorker::InvalidShift)
+		catch (ProductionWorker::InvalidPayRate)
 		{
-			cout << "enter valid shift: ";
+			cout << "enter valid payrate: ";
 			cin >> payrate;
 		}
 	}
