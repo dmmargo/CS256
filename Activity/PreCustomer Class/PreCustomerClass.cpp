@@ -1,3 +1,7 @@
+//Diane Margo
+//CS256
+//05/24/18
+
 #include "stdafx.h"
 #include <exception>
 #include <iostream> 
@@ -123,7 +127,7 @@ void ProductionWorker::setShift(int s)
 }
 void ProductionWorker::setPayRate(double pr)
 {
-	if (pr < 0)
+	if (pr > 0)
 		payrate = pr;
 	else
 		throw InvalidPayRate();
@@ -251,8 +255,8 @@ int main() {
 	}
 
 
-	cout << "\nName\t\t" << "ID Number\t" << "HireDatet\t" << "Position\t" << "Shift\t\t" << "PayRate" << endl;
-	cout << Joy.getName() << "\t\t" << Joy.getIDNumber() << "\t\t" << Joy.getDepartment() << "\t\t" << Joy.getPosition() << "\t\t" << pworker.getShift() << "\t\t" << pworker.getPayRate() << "\t\t" << endl;
+	//cout << "\nName\t\t" << "ID Number\t" << "HireDatet\t" << "Position\t" << "Shift\t\t" << "PayRate" << endl;
+	//cout << Joy.getName() << "\t\t" << Joy.getIDNumber() << "\t\t" << Joy.getDepartment() << "\t\t" << Joy.getPosition() << "\t\t" << pworker.getShift() << "\t\t" << pworker.getPayRate() << "\t\t" << endl;
 
 	return 0;
 }
