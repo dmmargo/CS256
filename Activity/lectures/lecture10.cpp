@@ -1,4 +1,4 @@
-/*
+
 //**********************************************************************
 //PASS BY VALUE
 #include "stdafx.h"
@@ -17,9 +17,9 @@ return 0;
 void func(int a) {
 cout << a << endl;
 } 
-*/
+
 //*************************************************************
-/*
+
 //PASS BY POINTER
 #include "stdafx.h" 
 #include <iostream> 
@@ -47,8 +47,7 @@ void funcptr(const int *a) {
 		cout << a << endl; // a should porint to something other then null
 	}
 }
-*/
-/*
+
 //****************************************************************************
 //PASS BY REFERENCE 
 
@@ -86,10 +85,8 @@ void funcref(int & a) { //this is read onlt i cannot change value
 	cout << a << endl;
 }
 
-*/
+//***********************************************************************
 
-/***********************************************************************/
-/*
 //REURN FUNCTION POINTER 
 #include "stdafx.h" 
 #include <iostream> 
@@ -107,9 +104,9 @@ int * FuncPtrReturn() {
 	static int b = 5;
 	return &b;
 }
-*/
+
 //******************************************************************************
-/*
+
 //RETURN REFERENCE 
 #include "stdafx.h" 
 #include <iostream> 
@@ -136,9 +133,9 @@ int & funcRefReturn() {
 	return b;
 }
 
-*/
+
 //***************************************************************************
-/*
+
 //DECLARE AND ASSIGN FUNCTION POINTER 
 #include "stdafx.h" 
 #include <cstdio> 
@@ -158,9 +155,9 @@ int main(int argc, char ** argv)
 	fp();
 	return 0;
 }
-*/
+
 //***************************************************************
-/*
+
 //USEFUL FUNCTION POINTER 
 #include "stdafx.h" 
 #include <cstdio> 
@@ -223,11 +220,10 @@ int jump(const char * rs) {
 		return 1;
 	}
 }
-*/
 
 //*****************************************************************************
-
 /*
+
 compile time - program not running 
 runtime -  program running and want ot do something 
 
@@ -244,7 +240,7 @@ delete
 */
 
 //*******************************************************************************
-/*
+
 //Dynamic Memory allocation 
 #include "stdafx.h" 
 #include <iostream> 
@@ -269,4 +265,3 @@ int main()
 }
 
 //**********************************************************************************
-*/

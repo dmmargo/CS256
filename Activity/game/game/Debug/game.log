@@ -1,0 +1,7 @@
+﻿  game.cpp
+c:\users\diane\source\repos\game\game\game.cpp(247): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\diane\source\repos\game\game\game.cpp(249): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\diane\source\repos\game\game\game.cpp(258): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\diane\source\repos\game\game\game.cpp(260): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\diane\source\repos\game\game\game.cpp(265): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  game.vcxproj -> C:\Users\Diane\source\repos\game\Debug\game.exe
